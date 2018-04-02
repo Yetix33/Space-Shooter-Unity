@@ -128,7 +128,8 @@ public class Weapon : MonoBehaviour {
 			go.layer = LayerMask.NameToLayer ("ProjectileEnemy");
 		}
 
-		go.transform.position = collar.transform.position;
+		go.transform.position = transform.position;
+		Rigidbody rigidB = go.GetComponent<Rigidbody>();
 		go.transform.SetParent (PROJECTILE_ANCHOR, true);
 		Projectile p = go.GetComponent<Projectile> ();
 		p.type = type;
@@ -139,6 +140,7 @@ public class Weapon : MonoBehaviour {
 
 	public static void upgradeWeapon(WeaponType t){
 		_type = t;
+		print (_type);
 	}
 
 	

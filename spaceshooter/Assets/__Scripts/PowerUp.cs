@@ -19,5 +19,8 @@ public class PowerUp : MonoBehaviour {
 	public void AbsorbedBy(GameObject target){
 		Destroy( this.gameObject );
 	}
+	void OnCollisionEnter (Collision coll) {
+		print ("ok");
 
+}
 }

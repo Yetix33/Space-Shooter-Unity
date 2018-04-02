@@ -8,7 +8,7 @@ public class Hero : MonoBehaviour {
 	public float speed = 30;
 	public float rollMult = 45;
 	public float pitchMult = 30;
-	public Weapon gun;
+	public Weapon gun = new Weapon ();
 	public float gameRestartDelay = 2f;
 	public GameObject projectilePrefab;
 	public float projectileSpeed = 40;
@@ -52,7 +52,7 @@ public class Hero : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
 		
-			TempFire();
+			gun.Fire();
 
 		}
 
@@ -79,7 +79,7 @@ public class Hero : MonoBehaviour {
 
 
 		void OnTriggerEnter(Collider other){
-			print ("got it");
+			//print ("got it");
 
 
 			Transform rooT = other.gameObject.transform.root;
@@ -96,6 +96,7 @@ public class Hero : MonoBehaviour {
 				shieldLevel--;
 				Destroy (go);
 		}else if(go.tag == "PowerUp"){
+			print("ayyyy");
 			AbsorbPowerUp (go);
 		}else{
 				print("Triggered by non-Enemy: "+ go.name);
@@ -111,14 +112,18 @@ public class Hero : MonoBehaviour {
 
 	public void AbsorbPowerUp(GameObject go){
 		PowerUp pu = go.GetComponent<PowerUp>();
+		print (pu.type);
 		switch (pu.type) {
 		case "shield":
+			print ("shield");
 			shieldLevel++;	
 			break;
 		case "speed":
+			print ("speed");
 			speed += 5;
 			break;
 		case "power":
+			print ("power");
 			Weapon.upgradeWeapon (WeaponType.phaser);
 			break;
 		}

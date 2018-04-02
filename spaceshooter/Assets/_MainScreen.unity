@@ -704,15 +704,16 @@ MonoBehaviour:
     continuousDamage: 0
     delayBetweenShots: 0.4
     velocity: 50
-  - type: 6
+  - type: 3
     letter: O
-    color: {r: 0.015138423, g: 0.578, b: 0.10607302, a: 1}
-    projectilePrefab: {fileID: 0}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    projectilePrefab: {fileID: 1720209817685788, guid: 17d8d0b301b8b9d4189047eef1b37cc2,
+      type: 2}
     projectileColor: {r: 1, g: 1, b: 1, a: 1}
-    damageOnHit: 0
+    damageOnHit: 3
     continuousDamage: 0
-    delayBetweenShots: 0
-    velocity: 0
+    delayBetweenShots: 1
+    velocity: 100
   currentScore: {fileID: 2039131646}
   highScore: {fileID: 2024755088}
   prefabPowerUp: {fileID: 1302598165298852, guid: b5ada59a613325d4d9b5625fbcc3b893,
@@ -832,6 +833,7 @@ GameObject:
   - component: {fileID: 1445602251}
   - component: {fileID: 1445602253}
   - component: {fileID: 1445602252}
+  - component: {fileID: 1445602254}
   m_Layer: 8
   m_Name: _Hero
   m_TagString: Hero
@@ -885,7 +887,7 @@ MonoBehaviour:
   speed: 30
   rollMult: 45
   pitchMult: 15
-  gun: {fileID: 0}
+  gun: {fileID: 1866621711}
   gameRestartDelay: 2
   projectilePrefab: {fileID: 1720209817685788, guid: 17d8d0b301b8b9d4189047eef1b37cc2,
     type: 2}
@@ -911,6 +913,18 @@ MonoBehaviour:
   offDown: 0
   keepOnScreen: 1
   isOnScreen: 1
+--- !u!114 &1445602254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1445602249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c360f71c25de7d04190bed9c970d79e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lastShotTime: 0
 --- !u!1 &1524309793
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,6 +1153,12 @@ Transform:
   m_Father: {fileID: 1445602250}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+--- !u!114 &1866621711 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114436805412556584, guid: 58955880ce351f347b0142c96a9b8e26,
+    type: 2}
+  m_PrefabInternal: {fileID: 183501364}
+  m_Script: {fileID: 11500000, guid: c360f71c25de7d04190bed9c970d79e1, type: 3}
 --- !u!1 &1980049325
 GameObject:
   m_ObjectHideFlags: 0
