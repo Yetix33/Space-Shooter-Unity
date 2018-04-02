@@ -728,163 +728,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 984046732}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< HEAD
---- !u!1 &1229706313
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1229706317}
-  - component: {fileID: 1229706316}
-  - component: {fileID: 1229706315}
-  - component: {fileID: 1229706314}
-  - component: {fileID: 1229706318}
-  - component: {fileID: 1229706319}
-  m_Layer: 0
-  m_Name: _MainCamera
-  m_TagString: MainCamera
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!81 &1229706314
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1229706313}
-  m_Enabled: 1
---- !u!124 &1229706315
-Behaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1229706313}
-  m_Enabled: 1
---- !u!20 &1229706316
-Camera:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1229706313}
-  m_Enabled: 1
-  serializedVersion: 2
-  m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 100
-  field of view: 60
-  orthographic: 1
-  orthographic size: 40
-  m_Depth: -1
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingPath: -1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 0
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!4 &1229706317
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1229706313}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1229706318
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1229706313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd87ec2c9b1a76546b419ff2eae8e8fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemies:
-  - {fileID: 1313162265770252, guid: 1d85650a04b9dad449344b44a570d87c, type: 2}
-  - {fileID: 1000998253359734, guid: ec177b439883ee043b6a852a6213ff8a, type: 2}
-  enemySpawns: 0.5
-  enemyDefaultSpacing: 1.5
-  weaponDefinition:
-  - type: 0
-    letter: B
-    color: {r: 1, g: 1, b: 1, a: 1}
-    projectilePrefab: {fileID: 1720209817685788, guid: 17d8d0b301b8b9d4189047eef1b37cc2,
-      type: 2}
-    projectileColor: {r: 1, g: 1, b: 1, a: 1}
-    damageOnHit: 1
-    continuousDamage: 0
-    delayBetweenShots: 0.2
-    velocity: 50
-  - type: 2
-    letter: S
-    color: {r: 0, g: 0.8745098, b: 1, a: 1}
-    projectilePrefab: {fileID: 1720209817685788, guid: 17d8d0b301b8b9d4189047eef1b37cc2,
-      type: 2}
-    projectileColor: {r: 0, g: 0.8745098, b: 1, a: 1}
-    damageOnHit: 1
-    continuousDamage: 0
-    delayBetweenShots: 0.4
-    velocity: 50
-  - type: 3
-    letter: O
-    color: {r: 1, g: 1, b: 1, a: 1}
-    projectilePrefab: {fileID: 1720209817685788, guid: 17d8d0b301b8b9d4189047eef1b37cc2,
-      type: 2}
-    projectileColor: {r: 1, g: 1, b: 1, a: 1}
-    damageOnHit: 3
-    continuousDamage: 0
-    delayBetweenShots: 3
-    velocity: 100
-  currentScore: {fileID: 2039131646}
-  highScore: {fileID: 2024755088}
-  prefabPowerUp: {fileID: 1302598165298852, guid: b5ada59a613325d4d9b5625fbcc3b893,
-    type: 2}
---- !u!114 &1229706319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1229706313}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96e4ee605a687c542a4b47290770dc34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 1
-  camWidth: 0
-  camHeight: 0
-  offRight: 0
-  offLeft: 0
-  offUp: 0
-  offDown: 0
-  keepOnScreen: 0
-  isOnScreen: 1
-=======
->>>>>>> fa0893a5562406cd8e389b584ec5abe0219c61f0
 --- !u!1 &1239728138
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,7 +876,6 @@ MonoBehaviour:
   speed: 30
   rollMult: 45
   pitchMult: 15
-  gun: {fileID: 1866621711}
   gameRestartDelay: 2
   projectilePrefab: {fileID: 1720209817685788, guid: 17d8d0b301b8b9d4189047eef1b37cc2,
     type: 2}
@@ -1287,12 +1129,6 @@ Transform:
   m_Father: {fileID: 1445602250}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
---- !u!114 &1866621711 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114436805412556584, guid: 58955880ce351f347b0142c96a9b8e26,
-    type: 2}
-  m_PrefabInternal: {fileID: 183501364}
-  m_Script: {fileID: 11500000, guid: c360f71c25de7d04190bed9c970d79e1, type: 3}
 --- !u!1 &1980049325
 GameObject:
   m_ObjectHideFlags: 0

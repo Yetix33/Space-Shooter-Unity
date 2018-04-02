@@ -26,8 +26,8 @@ public class Weapon : MonoBehaviour {
 
 	[Header("Set Dynamically")] [SerializeField]
 
-	private static WeaponType 			_type = WeaponType.none;
-	private static WeaponDefinition 	def;
+	private WeaponType 			_type = WeaponType.none;
+	private WeaponDefinition 	def;
 	private GameObject			collar;
 	public float 				lastShotTime;
 	private Renderer 			collarRend;
@@ -35,10 +35,10 @@ public class Weapon : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		def = Main.GetWeaponDefinition (_type);
-		collar = transform.Find("Collar").gameObject;
+
+		collar = transform.Find ("Collar").gameObject;
 		collarRend = collar.GetComponent<Renderer> ();
-		lastShotTime = 0;
+
 		SetType (_type);
 
 		if (PROJECTILE_ANCHOR == null) {
@@ -73,21 +73,19 @@ public class Weapon : MonoBehaviour {
 		} else {
 			this.gameObject.SetActive (true);
 		}
-		print (_type);
+
 		def = Main.GetWeaponDefinition (_type);
 		collarRend.material.color = def.color;
 		lastShotTime = 0;
 	}
 
 	public void Fire() {
-		//if (!gameObject.activeInHierarchy) return;
-		//print(Time.time - lastShotTime);
+		if (!gameObject.activeInHierarchy) return;
+
 		if (Time.time - lastShotTime < def.delayBetweenShots) {
-			print (def.delayBetweenShots);
 			return;
 		}
 
-		//lastShotTime = Time.time;
 		Projectile p;
 
 		Vector3 vel = Vector3.up * def.velocity;
@@ -97,7 +95,7 @@ public class Weapon : MonoBehaviour {
 		}
 
 		switch (type) {
-		case WeaponType.none:
+		case WeaponType.simple:
 			p = MakeProjectile ();
 			p.rigid.velocity = vel;
 			break;
@@ -111,12 +109,7 @@ public class Weapon : MonoBehaviour {
 			p.transform.rotation = Quaternion.AngleAxis (-10, Vector3.back);
 			p.rigid.velocity = p.transform.rotation * vel;
 			break;
-		case WeaponType.phaser:
-			p = MakeProjectile ();
-			p.rigid.velocity = vel;
-			break;
 		}
-
 	}
 
 	public Projectile MakeProjectile() {
@@ -130,8 +123,7 @@ public class Weapon : MonoBehaviour {
 			go.layer = LayerMask.NameToLayer ("ProjectileEnemy");
 		}
 
-		go.transform.position = transform.position;
-		Rigidbody rigidB = go.GetComponent<Rigidbody>();
+		go.transform.position = collar.transform.position;
 		go.transform.SetParent (PROJECTILE_ANCHOR, true);
 		Projectile p = go.GetComponent<Projectile> ();
 		p.type = type;
@@ -140,28 +132,16 @@ public class Weapon : MonoBehaviour {
 
 	}
 
-	public static void upgradeWeapon(WeaponType t){
-		_type = t;
-		print (_type);
-		def = Main.GetWeaponDefinition (_type);
-//		collarRend.material.color = def.color;
-	}
-
 	
 	// Update is called once per frame
 	void Update () {
-<<<<<<< HEAD
-		/*if(Input.GetKey(KeyCode.Alpha1)) {
-=======
 		if(Input.GetKeyDown(KeyCode.Alpha1)) {
->>>>>>> fa0893a5562406cd8e389b584ec5abe0219c61f0
 			type = WeaponType.simple;
 		}
 
 		if (Input.GetKeyDown(KeyCode.Alpha2)) {
 			type = WeaponType.blaster;
-		}*/
-
+		}
 
 	}
 }
