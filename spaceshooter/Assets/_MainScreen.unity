@@ -523,7 +523,7 @@ MonoBehaviour:
   offLeft: 0
   offUp: 0
   offDown: 0
-  keepOnScreen: 0
+  keepOnScreen: 1
   isOnScreen: 1
 --- !u!114 &799422066
 MonoBehaviour:
@@ -543,7 +543,7 @@ MonoBehaviour:
   enemySpawns: 0.5
   enemyDefaultSpacing: 1.5
   weaponDefinition:
-  - type: 1
+  - type: 0
     letter: B
     color: {r: 1, g: 1, b: 1, a: 1}
     projectilePrefab: {fileID: 1720209817685788, guid: 17d8d0b301b8b9d4189047eef1b37cc2,
@@ -555,23 +555,26 @@ MonoBehaviour:
     velocity: 50
   - type: 2
     letter: S
-    color: {r: 0, g: 0.8745098, b: 1, a: 1}
+    color: {r: 0, g: 0.8758622, b: 1, a: 1}
     projectilePrefab: {fileID: 1720209817685788, guid: 17d8d0b301b8b9d4189047eef1b37cc2,
       type: 2}
-    projectileColor: {r: 0, g: 0.8745098, b: 1, a: 1}
+    projectileColor: {r: 0, g: 0.91724133, b: 1, a: 1}
     damageOnHit: 1
     continuousDamage: 0
     delayBetweenShots: 0.4
     velocity: 50
-  - type: 6
+  - type: 3
     letter: O
-    color: {r: 0.015138423, g: 0.578, b: 0.10607302, a: 1}
-    projectilePrefab: {fileID: 0}
+    color: {r: 1, g: 1, b: 1, a: 1}
+    projectilePrefab: {fileID: 1720209817685788, guid: 17d8d0b301b8b9d4189047eef1b37cc2,
+      type: 2}
     projectileColor: {r: 1, g: 1, b: 1, a: 1}
-    damageOnHit: 0
+    damageOnHit: 3
     continuousDamage: 0
-    delayBetweenShots: 0
-    velocity: 0
+    delayBetweenShots: 3
+    velocity: 100
+  prefabPowerUp: {fileID: 1302598165298852, guid: b5ada59a613325d4d9b5625fbcc3b893,
+    type: 2}
   currentScore: {fileID: 2039131646}
   highScore: {fileID: 2024755088}
 --- !u!124 &799422067
@@ -875,7 +878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 30
   rollMult: 45
-  pitchMult: 15
+  pitchMult: 30
   gameRestartDelay: 2
   projectilePrefab: {fileID: 1720209817685788, guid: 17d8d0b301b8b9d4189047eef1b37cc2,
     type: 2}
@@ -892,7 +895,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e4ee605a687c542a4b47290770dc34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 4
+  radius: 1
   camWidth: 0
   camHeight: 0
   offRight: 0

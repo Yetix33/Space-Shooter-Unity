@@ -8,7 +8,7 @@ public class Hero : MonoBehaviour {
 	public float speed = 30;
 	public float rollMult = 45;
 	public float pitchMult = 30;
-
+	private Weapon gun;
 	public float gameRestartDelay = 2f;
 	public GameObject projectilePrefab;
 	public float projectileSpeed = 40;
@@ -27,6 +27,7 @@ public class Hero : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+		gun = GetComponent<Weapon> ();
 		if (S == null) {
 			S = this;
 		} else {
@@ -50,11 +51,11 @@ public class Hero : MonoBehaviour {
 
 			//lets da ship fire poof poof
 
-		//if (Input.GetKeyDown (KeyCode.Space)) {
+		/*if (Input.GetKeyDown (KeyCode.Space)) {
 		
-			//TempFire ();
+			gun.Fire();
 
-		//}
+		}*/
 
 		if (Input.GetAxis ("Jump") == 1 && fireDelegate != null) {
 
@@ -79,7 +80,8 @@ public class Hero : MonoBehaviour {
 
 
 		void OnTriggerEnter(Collider other){
-		
+			//print ("got it");
+
 
 			Transform rooT = other.gameObject.transform.root;
 			GameObject go = rooT.gameObject;
@@ -94,7 +96,10 @@ public class Hero : MonoBehaviour {
 			if (go.tag == "Enemy") {
 				shieldLevel--;
 				Destroy (go);
-			}else{
+		}else if(go.tag == "PowerUp"){
+			print("ayyyy");
+			AbsorbPowerUp (go);
+		}else{
 				print("Triggered by non-Enemy: "+ go.name);
 
 			//print ("Trigger: " + other.gameObject.name);
@@ -105,6 +110,28 @@ public class Hero : MonoBehaviour {
 
 		}
 	}
+
+	public void AbsorbPowerUp(GameObject go){
+		PowerUp pu = go.GetComponent<PowerUp>();
+		print (pu.type);
+		switch (pu.type) {
+		case "shield":
+			print ("shield");
+			shieldLevel++;	
+			break;
+		case "speed":
+			print ("speed");
+			speed += 5;
+			break;
+		case "power":
+			print ("power");
+			Weapon.upgradeWeapon(WeaponType.phaser);
+			break;
+		}
+		pu.AbsorbedBy (this.gameObject);
+
+	}
+
 
 	public float shieldLevel {
 		get {
