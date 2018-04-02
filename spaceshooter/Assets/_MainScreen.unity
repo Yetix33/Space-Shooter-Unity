@@ -684,7 +684,7 @@ MonoBehaviour:
   enemySpawns: 0.5
   enemyDefaultSpacing: 1.5
   weaponDefinition:
-  - type: 1
+  - type: 0
     letter: B
     color: {r: 1, g: 1, b: 1, a: 1}
     projectilePrefab: {fileID: 1720209817685788, guid: 17d8d0b301b8b9d4189047eef1b37cc2,

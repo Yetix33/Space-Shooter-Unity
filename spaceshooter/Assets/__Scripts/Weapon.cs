@@ -35,10 +35,10 @@ public class Weapon : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		def = Main.GetWeaponDefinition (_type);
 		collar = transform.Find ("Collar").gameObject;
 		collarRend = collar.GetComponent<Renderer> ();
-
+		lastShotTime = 0;
 		SetType (_type);
 
 		if (PROJECTILE_ANCHOR == null) {
@@ -80,12 +80,12 @@ public class Weapon : MonoBehaviour {
 	}
 
 	public void Fire() {
-		if (!gameObject.activeInHierarchy) return;
+		//if (!gameObject.activeInHierarchy) return;
 
 		if (Time.time - lastShotTime < def.delayBetweenShots) {
 			return;
 		}
-
+		lastShotTime = Time.time;
 		Projectile p;
 
 		Vector3 vel = Vector3.up * def.velocity;
@@ -95,7 +95,7 @@ public class Weapon : MonoBehaviour {
 		}
 
 		switch (type) {
-		case WeaponType.simple:
+		case WeaponType.none:
 			p = MakeProjectile ();
 			p.rigid.velocity = vel;
 			break;

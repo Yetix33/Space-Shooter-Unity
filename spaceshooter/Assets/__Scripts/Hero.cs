@@ -8,7 +8,7 @@ public class Hero : MonoBehaviour {
 	public float speed = 30;
 	public float rollMult = 45;
 	public float pitchMult = 30;
-	public Weapon gun = new Weapon ();
+	public Weapon gun;
 	public float gameRestartDelay = 2f;
 	public GameObject projectilePrefab;
 	public float projectileSpeed = 40;
@@ -27,6 +27,7 @@ public class Hero : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
+		gun = GetComponent<Weapon> ();
 		if (S == null) {
 			S = this;
 		} else {

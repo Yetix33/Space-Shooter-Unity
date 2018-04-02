@@ -119,11 +119,11 @@ public class Main : MonoBehaviour {
 	static public WeaponDefinition GetWeaponDefinition (WeaponType wt) {
 
 		if (WEAP_DICT.ContainsKey (wt)) {
-
+			print("keyfound");
 			return (WEAP_DICT [wt]);
 			
 		}
-
+		print("keynotfound");
 		return (new WeaponDefinition ());
 		
 	}
