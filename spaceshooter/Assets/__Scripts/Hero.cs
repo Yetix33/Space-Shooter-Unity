@@ -51,11 +51,11 @@ public class Hero : MonoBehaviour {
 
 			//lets da ship fire poof poof
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
+		/*if (Input.GetKeyDown (KeyCode.Space)) {
 		
 			gun.Fire();
 
-		}
+		}*/
 
 		if (Input.GetAxis ("Jump") == 1 && fireDelegate != null) {
 
@@ -125,7 +125,7 @@ public class Hero : MonoBehaviour {
 			break;
 		case "power":
 			print ("power");
-			Weapon.upgradeWeapon (WeaponType.phaser);
+			Weapon.upgradeWeapon(WeaponType.phaser);
 			break;
 		}
 		pu.AbsorbedBy (this.gameObject);

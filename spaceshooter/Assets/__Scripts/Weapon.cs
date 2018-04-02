@@ -27,7 +27,7 @@ public class Weapon : MonoBehaviour {
 	[Header("Set Dynamically")] [SerializeField]
 
 	private static WeaponType 			_type = WeaponType.none;
-	private WeaponDefinition 	def;
+	private static WeaponDefinition 	def;
 	private GameObject			collar;
 	public float 				lastShotTime;
 	private Renderer 			collarRend;
@@ -36,7 +36,7 @@ public class Weapon : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		def = Main.GetWeaponDefinition (_type);
-		collar = transform.Find ("Collar").gameObject;
+		collar = transform.Find("Collar").gameObject;
 		collarRend = collar.GetComponent<Renderer> ();
 		lastShotTime = 0;
 		SetType (_type);
@@ -73,7 +73,7 @@ public class Weapon : MonoBehaviour {
 		} else {
 			this.gameObject.SetActive (true);
 		}
-
+		print (_type);
 		def = Main.GetWeaponDefinition (_type);
 		collarRend.material.color = def.color;
 		lastShotTime = 0;
@@ -81,11 +81,13 @@ public class Weapon : MonoBehaviour {
 
 	public void Fire() {
 		//if (!gameObject.activeInHierarchy) return;
-
+		//print(Time.time - lastShotTime);
 		if (Time.time - lastShotTime < def.delayBetweenShots) {
+			print (def.delayBetweenShots);
 			return;
 		}
-		lastShotTime = Time.time;
+
+		//lastShotTime = Time.time;
 		Projectile p;
 
 		Vector3 vel = Vector3.up * def.velocity;
@@ -141,18 +143,20 @@ public class Weapon : MonoBehaviour {
 	public static void upgradeWeapon(WeaponType t){
 		_type = t;
 		print (_type);
+		def = Main.GetWeaponDefinition (_type);
+//		collarRend.material.color = def.color;
 	}
 
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKey(KeyCode.Alpha1)) {
+		/*if(Input.GetKey(KeyCode.Alpha1)) {
 			type = WeaponType.simple;
 		}
 
 		if (Input.GetKey (KeyCode.Alpha2)) {
 			type = WeaponType.blaster;
-		}
+		}*/
 
 
 	}

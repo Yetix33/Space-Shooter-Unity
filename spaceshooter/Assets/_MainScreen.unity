@@ -712,7 +712,7 @@ MonoBehaviour:
     projectileColor: {r: 1, g: 1, b: 1, a: 1}
     damageOnHit: 3
     continuousDamage: 0
-    delayBetweenShots: 1
+    delayBetweenShots: 3
     velocity: 100
   currentScore: {fileID: 2039131646}
   highScore: {fileID: 2024755088}
@@ -833,7 +833,6 @@ GameObject:
   - component: {fileID: 1445602251}
   - component: {fileID: 1445602253}
   - component: {fileID: 1445602252}
-  - component: {fileID: 1445602254}
   m_Layer: 8
   m_Name: _Hero
   m_TagString: Hero
@@ -913,18 +912,6 @@ MonoBehaviour:
   offDown: 0
   keepOnScreen: 1
   isOnScreen: 1
---- !u!114 &1445602254
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1445602249}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c360f71c25de7d04190bed9c970d79e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lastShotTime: 0
 --- !u!1 &1524309793
 GameObject:
   m_ObjectHideFlags: 0
