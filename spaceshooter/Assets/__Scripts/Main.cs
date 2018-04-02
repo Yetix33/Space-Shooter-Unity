@@ -24,6 +24,7 @@ public class Main : MonoBehaviour {
 
 
 	public GameObject[] enemies;
+	public GameObject bossEnemy;
 	public float enemySpawns = 0.5f;
 	public float enemyDefaultSpacing = 1.5f;
 	public WeaponDefinition[] weaponDefinition;
@@ -33,6 +34,7 @@ public class Main : MonoBehaviour {
 	public GameObject prefabPowerUp;
 	public static int TOTAL_POINTS;
 	public static int HIGH_SCORE;
+	public static int CURR_LEVEL;
 
 	void Start() {
 		TOTAL_POINTS = 0;
@@ -68,6 +70,12 @@ public class Main : MonoBehaviour {
 			HIGH_SCORE = TOTAL_POINTS;
 			PlayerPrefs.SetInt ("highscore", HIGH_SCORE);
 		}
+
+		if (TOTAL_POINTS >= 5 && CURR_LEVEL == 0) {
+			CURR_LEVEL++;
+			SceneManager.LoadScene ("_Level", LoadSceneMode.Additive);
+
+		}
 	}
 
 	public void Spawn(){
@@ -95,7 +103,13 @@ public class Main : MonoBehaviour {
 
 		//RECALL FUNCTION (keeps going)
 
-		Invoke ("Spawn", 1f / enemySpawns);
+		if (CURR_LEVEL == 0) {
+			Invoke ("Spawn", 1f / enemySpawns);
+		} else {
+			print ("lol");
+			DestroyAll ();
+			Invoke ("BossSpawn", 2f);
+		}
 	}
 
 	public void DelayedRestart(float delay){
@@ -106,6 +120,7 @@ public class Main : MonoBehaviour {
 		SceneManager.LoadScene("_MainScreen");
 	}
 
+<<<<<<< HEAD
 	public void shipDestroyed(Enemy e){
 		GameObject go = Instantiate (prefabPowerUp);
 		PowerUp pu = go.GetComponent<PowerUp> ();
@@ -115,6 +130,18 @@ public class Main : MonoBehaviour {
 
 
 
+=======
+	public void BossSpawn(){
+		Vector3 pos = Vector3.zero;
+
+		float x = 19.6f;
+		float y = 27f;
+
+		pos.x = x;
+		pos.y = y;
+		Instantiate (bossEnemy,pos,Quaternion.identity);
+	}
+>>>>>>> fa0893a5562406cd8e389b584ec5abe0219c61f0
 
 	static public WeaponDefinition GetWeaponDefinition (WeaponType wt) {
 
@@ -131,8 +158,15 @@ public class Main : MonoBehaviour {
 	public void UpdateScore() {
 		currentScore.text = "Score: " + TOTAL_POINTS.ToString();
 		highScore.text = "High Score: " + HIGH_SCORE.ToString ();
+	}
 
+	public void DestroyAll(){
+		GameObject[] gameObjects;
+		gameObjects = GameObject.FindGameObjectsWithTag ("Enemy");
 
+		for (int i = 0; i < gameObjects.Length; i++) {
+			Destroy (gameObjects [i]);
+		}
 
 	}
 
