@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour {
 
 	[Header("Set Dynamically")] [SerializeField]
 
-	private WeaponType 			_type = WeaponType.none;
+	private static WeaponType 			_type = WeaponType.none;
 	private WeaponDefinition 	def;
 	private GameObject			collar;
 	public float 				lastShotTime;
@@ -109,7 +109,12 @@ public class Weapon : MonoBehaviour {
 			p.transform.rotation = Quaternion.AngleAxis (-10, Vector3.back);
 			p.rigid.velocity = p.transform.rotation * vel;
 			break;
+		case WeaponType.phaser:
+			p = MakeProjectile ();
+			p.rigid.velocity = vel;
+			break;
 		}
+
 	}
 
 	public Projectile MakeProjectile() {
@@ -132,6 +137,10 @@ public class Weapon : MonoBehaviour {
 
 	}
 
+	public static void upgradeWeapon(WeaponType t){
+		_type = t;
+	}
+
 	
 	// Update is called once per frame
 	void Update () {
@@ -142,6 +151,7 @@ public class Weapon : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Alpha2)) {
 			type = WeaponType.blaster;
 		}
+
 
 	}
 }

@@ -715,6 +715,8 @@ MonoBehaviour:
     velocity: 0
   currentScore: {fileID: 2039131646}
   highScore: {fileID: 2024755088}
+  prefabPowerUp: {fileID: 1302598165298852, guid: b5ada59a613325d4d9b5625fbcc3b893,
+    type: 2}
 --- !u!114 &1229706319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -883,6 +885,7 @@ MonoBehaviour:
   speed: 30
   rollMult: 45
   pitchMult: 15
+  gun: {fileID: 0}
   gameRestartDelay: 2
   projectilePrefab: {fileID: 1720209817685788, guid: 17d8d0b301b8b9d4189047eef1b37cc2,
     type: 2}

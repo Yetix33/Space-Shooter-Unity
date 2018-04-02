@@ -27,10 +27,10 @@ public class Main : MonoBehaviour {
 	public float enemySpawns = 0.5f;
 	public float enemyDefaultSpacing = 1.5f;
 	public WeaponDefinition[] weaponDefinition;
-
+	private WeaponDefinition phaserdef = new WeaponDefinition();
 	public Text currentScore;
 	public Text highScore;
-
+	public GameObject prefabPowerUp;
 	public static int TOTAL_POINTS;
 	public static int HIGH_SCORE;
 
@@ -49,7 +49,12 @@ public class Main : MonoBehaviour {
 		//Call Spawn function (in 2 seconds)
 		Invoke ("Spawn", 1f / enemySpawns);
 
+
 		WEAP_DICT = new Dictionary<WeaponType, WeaponDefinition> ();
+		phaserdef.damageOnHit = 3;
+		phaserdef.delayBetweenShots = 5;
+		phaserdef.velocity = 40;
+		WEAP_DICT.Add (WeaponType.phaser, phaserdef);
 		foreach (WeaponDefinition def in weaponDefinition) {
 			WEAP_DICT [def.type] = def;			
 		}
@@ -100,6 +105,15 @@ public class Main : MonoBehaviour {
 	public void Restart(){
 		SceneManager.LoadScene("_MainScreen");
 	}
+
+	public void shipDestroyed(Enemy e){
+		GameObject go = Instantiate (prefabPowerUp);
+		PowerUp pu = go.GetComponent<PowerUp> ();
+		pu.transform.position = e.transform.position;
+	
+	}
+
+
 
 
 	static public WeaponDefinition GetWeaponDefinition (WeaponType wt) {

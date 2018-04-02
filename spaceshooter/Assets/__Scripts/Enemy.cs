@@ -64,6 +64,7 @@ public class Enemy : MonoBehaviour {
 
 			health -= Main.GetWeaponDefinition (p.type).damageOnHit;
 			if (health <= 0) {
+				Main.S.shipDestroyed( this ); 
 				Destroy (this.gameObject);
 				Main.TOTAL_POINTS = Main.TOTAL_POINTS + (int) scorePoints;
 	
