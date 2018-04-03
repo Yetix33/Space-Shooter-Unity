@@ -17,7 +17,6 @@ public class Enemy_0 : Enemy {
 
 	void Start() {
 		number = Random.Range (0, 2);
-		print (number.ToString ());
 		health = 3;
 		base.setScore ();
 	}

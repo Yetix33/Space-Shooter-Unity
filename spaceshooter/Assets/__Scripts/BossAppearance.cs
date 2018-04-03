@@ -11,7 +11,6 @@ public class BossAppearance : MonoBehaviour {
 	float delay = 3f;
 
 	void Start () {
-		print ("RUN START");
 		Invoke ("Unload", delay);
 	}
 
@@ -30,7 +29,6 @@ public class BossAppearance : MonoBehaviour {
 	}
 	
 	public void Unload(){
-		print ("UNLOAD PLEASE");
 		SceneManager.UnloadSceneAsync("_Level");
 
 	}

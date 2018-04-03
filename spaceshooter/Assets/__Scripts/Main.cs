@@ -14,7 +14,7 @@ public enum WeaponType {
 	laser,
 	shield       //used to raise shield level
 }
-	
+
 
 public class Main : MonoBehaviour {
 	//Singleton for Main Function
@@ -57,7 +57,7 @@ public class Main : MonoBehaviour {
 
 		WEAP_DICT = new Dictionary<WeaponType, WeaponDefinition> ();
 		phaserdef.damageOnHit = 3;
-		phaserdef.delayBetweenShots = 3;
+		phaserdef.delayBetweenShots = 1;
 		phaserdef.velocity = 100; 
 
 		WEAP_DICT.Add (WeaponType.phaser, phaserdef);
@@ -67,9 +67,9 @@ public class Main : MonoBehaviour {
 		}
 
 
-			
+
 	}
-		
+
 	void Update(){
 		UpdateScore ();
 
@@ -78,7 +78,7 @@ public class Main : MonoBehaviour {
 			PlayerPrefs.SetInt ("highscore", HIGH_SCORE);
 		}
 
-		if (TOTAL_POINTS >= 5 && CURR_LEVEL == 0) {
+		if (TOTAL_POINTS >= 25 && CURR_LEVEL == 0) {
 			CURR_LEVEL++;
 			SceneManager.LoadScene ("_Level", LoadSceneMode.Additive);
 
@@ -89,7 +89,7 @@ public class Main : MonoBehaviour {
 
 		//Randomly pick an enemey type from list of enemies
 		int rng = Random.Range (0, enemies.Length);
-		print (rng);
+		//		print (rng);
 		//instantiate it 
 		GameObject enemy = Instantiate<GameObject> (enemies [rng]);
 
@@ -122,15 +122,19 @@ public class Main : MonoBehaviour {
 	public void DelayedRestart(float delay){
 		Invoke ("Restart", delay);
 	}
-		
+
 	public void Restart(){
+		CURR_LEVEL = 0;
 		SceneManager.LoadScene("_MainScreen");
 	}
 
 	public void shipDestroyed(Enemy e){
-		GameObject go = Instantiate (prefabPowerUp);
-		PowerUp pu = go.GetComponent<PowerUp> ();
-		pu.transform.position = e.transform.position;
+		float chance = Random.Range (0, 100);
+		if (chance <= 40) {
+			GameObject go = Instantiate (prefabPowerUp);
+			PowerUp pu = go.GetComponent<PowerUp> ();
+			pu.transform.position = e.transform.position;
+		}
 
 	}
 
@@ -150,11 +154,11 @@ public class Main : MonoBehaviour {
 		if (WEAP_DICT.ContainsKey (wt)) {
 
 			return (WEAP_DICT [wt]);
-			
+
 		}
 
 		return (new WeaponDefinition ());
-		
+
 	}
 
 	public void UpdateScore() {

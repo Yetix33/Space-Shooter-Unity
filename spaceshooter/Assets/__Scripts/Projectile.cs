@@ -25,9 +25,9 @@ public class Projectile : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (bndCheck.offUp) {
@@ -46,7 +46,7 @@ public class Projectile : MonoBehaviour {
 		_type = eType;
 		WeaponDefinition def = Main.GetWeaponDefinition (_type);
 		rend.material.color = def.projectileColor;
-	
+
 	}
 
 }

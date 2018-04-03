@@ -39,75 +39,67 @@ public class Hero : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-			float x = Input.GetAxis("Horizontal");
-			float y = Input.GetAxis("Vertical");
+		float x = Input.GetAxis("Horizontal");
+		float y = Input.GetAxis("Vertical");
 
-			Vector3 pos = transform.position;
-			pos.x += x * speed * Time.deltaTime;
-			pos.y += y * speed * Time.deltaTime;
-			transform.position = pos;
-			transform.rotation = Quaternion.Euler (y*pitchMult,x*rollMult,0);
-			
+		Vector3 pos = transform.position;
+		pos.x += x * speed * Time.deltaTime;
+		pos.y += y * speed * Time.deltaTime;
+		transform.position = pos;
+		transform.rotation = Quaternion.Euler (y*pitchMult,x*rollMult,0);
 
-			//lets da ship fire poof poof
+
+		//lets da ship fire poof poof
 
 		/*if (Input.GetKeyDown (KeyCode.Space)) {
 		
 			gun.Fire();
 
 		}*/
+		if(Input.GetKey(KeyCode.Alpha1)) {
+			Weapon.upgradeWeapon(WeaponType.none);
+		}
+
+		if (Input.GetKey (KeyCode.Alpha2)) {
+			//print("two bitch");
+			Weapon.upgradeWeapon(WeaponType.blaster);
+		}
+		if (Input.GetKey (KeyCode.Alpha3)) {
+			Weapon.upgradeWeapon(WeaponType.phaser);
+		}
+
 
 		if (Input.GetAxis ("Jump") == 1 && fireDelegate != null) {
 
 			fireDelegate ();
-		
+
 		}
 
 
 	}
+		
 
-		void TempFire() {
-			GameObject projGO = Instantiate<GameObject>(projectilePrefab);
-			projGO.transform.position = transform.position;
-			Rigidbody rigidB = projGO.GetComponent<Rigidbody>();
-			//rigidB.velocity = Vector3.up * projectileSpeed;
 
-		Projectile proj = projGO.GetComponent<Projectile> ();
-		proj.type = WeaponType.blaster;
-		float tSpeed = Main.GetWeaponDefinition (proj.type).velocity;
-		rigidB.velocity = Vector3.up * tSpeed;
+	void OnTriggerEnter(Collider other){
+
+
+		Transform rooT = other.gameObject.transform.root;
+		GameObject go = rooT.gameObject;
+
+		if (go == lastTriggerGo) {
+			return;
 		}
 
+		lastTriggerGo = go;
 
-		void OnTriggerEnter(Collider other){
-			//print ("got it");
-
-
-			Transform rooT = other.gameObject.transform.root;
-			GameObject go = rooT.gameObject;
-
-			print("Object: Name: " + go.name);
-			if (go == lastTriggerGo) {
-				return;
-			}
-
-			lastTriggerGo = go;
-
-			if (go.tag == "Enemy") {
-				shieldLevel--;
-				Destroy (go);
+		if (go.tag == "Enemy") {
+			shieldLevel--;
+			Destroy (go);
 		}else if(go.tag == "PowerUp"){
-			print("ayyyy");
 			AbsorbPowerUp (go);
-		}else{
-				print("Triggered by non-Enemy: "+ go.name);
-
-			//print ("Trigger: " + other.gameObject.name);
-			//shieldLevel--;
-			//if (shieldLevel == 0) {
-			//	Destroy (other.gameObject);
-			//}
-
+		}else if(go.tag == "ProjectileEnemy"){
+			shieldLevel--;
+			Destroy (go);
 		}
 	}
 
@@ -121,11 +113,12 @@ public class Hero : MonoBehaviour {
 			break;
 		case "speed":
 			print ("speed");
-			speed += 5;
+			speed += 15;
 			break;
-		case "power":
-			print ("power");
-			Weapon.upgradeWeapon(WeaponType.phaser);
+
+		case "nuke":
+			print ("nuke");
+			Main.S.DestroyAll ();
 			break;
 		}
 		pu.AbsorbedBy (this.gameObject);

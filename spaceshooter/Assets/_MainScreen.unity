@@ -539,7 +539,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 1313162265770252, guid: 1d85650a04b9dad449344b44a570d87c, type: 2}
   - {fileID: 1000998253359734, guid: ec177b439883ee043b6a852a6213ff8a, type: 2}
-  bossEnemy: {fileID: 1005793673804876, guid: e16e8505bd6800e4dbb236406d7f4ad8, type: 2}
+  bossEnemy: {fileID: 1671235106935242, guid: e16e8505bd6800e4dbb236406d7f4ad8, type: 2}
   enemySpawns: 0.5
   enemyDefaultSpacing: 1.5
   weaponDefinition:

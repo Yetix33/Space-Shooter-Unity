@@ -73,7 +73,7 @@ public class Weapon : MonoBehaviour {
 		} else {
 			this.gameObject.SetActive (true);
 		}
-		print (_type);
+
 		def = Main.GetWeaponDefinition (_type);
 		collarRend.material.color = def.color;
 		lastShotTime = 0;
@@ -81,9 +81,9 @@ public class Weapon : MonoBehaviour {
 
 	public void Fire() {
 		//if (!gameObject.activeInHierarchy) return;
-		//print(Time.time - lastShotTime);
+
 		if (Time.time - lastShotTime < def.delayBetweenShots) {
-			print (def.delayBetweenShots);
+			
 			return;
 		}
 
@@ -142,7 +142,7 @@ public class Weapon : MonoBehaviour {
 
 	public static void upgradeWeapon(WeaponType t){
 		_type = t;
-		print (_type);
+
 		def = Main.GetWeaponDefinition (_type);
 //		collarRend.material.color = def.color;
 	}

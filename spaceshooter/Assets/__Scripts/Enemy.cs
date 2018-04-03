@@ -74,7 +74,6 @@ public class Enemy : MonoBehaviour {
 			Destroy (otherGO);
 			break;
 		default:
-			print ("Enemy hit by non-ProjectileHero: " + otherGO.name);
 			break;
 		}
 	}
