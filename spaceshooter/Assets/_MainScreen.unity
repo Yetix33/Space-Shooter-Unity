@@ -570,7 +570,7 @@ MonoBehaviour:
     projectilePrefab: {fileID: 1720209817685788, guid: 17d8d0b301b8b9d4189047eef1b37cc2,
       type: 2}
     projectileColor: {r: 1, g: 1, b: 1, a: 1}
-    damageOnHit: 3
+    damageOnHit: 4
     continuousDamage: 0
     delayBetweenShots: 3
     velocity: 100

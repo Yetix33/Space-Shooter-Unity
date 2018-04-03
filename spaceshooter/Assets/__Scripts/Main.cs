@@ -25,7 +25,7 @@ public class Main : MonoBehaviour {
 
 	public GameObject[] enemies;
 	public GameObject bossEnemy;
-	public float enemySpawns = 20f;
+	public float enemySpawns = 1f;
 	public float enemyDefaultSpacing = 1.5f;
 	public WeaponDefinition[] weaponDefinition;
 
@@ -54,7 +54,7 @@ public class Main : MonoBehaviour {
 		boundCheck = GetComponent<BoundsCheck> ();
 
 		//Call Spawn function (in 2 seconds)
-		Invoke ("Spawn", 1f / enemySpawns);
+		Invoke ("Spawn", 1f / (enemySpawns*(TOTAL_POINTS+1)));
 
 		WEAP_DICT = new Dictionary<WeaponType, WeaponDefinition> ();
 		phaserdef.damageOnHit = 3;
@@ -112,7 +112,8 @@ public class Main : MonoBehaviour {
 		//RECALL FUNCTION (keeps going)
 
 		if (CURR_LEVEL == 0) {
-			Invoke ("Spawn", 1f / enemySpawns);
+			print ((enemySpawns * (TOTAL_POINTS + 1)));
+			Invoke ("Spawn", 2f / (enemySpawns * (TOTAL_POINTS + 1)));
 		} else {
 			print ("lol");
 			DestroyAll ();

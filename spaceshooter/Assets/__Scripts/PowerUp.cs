@@ -5,11 +5,13 @@ using UnityEngine;
 public class PowerUp : MonoBehaviour {
 	public string[] PowerList = {"speed", "shield", "nuke"};
 	public string type;
-	public float             lifeTime = 6f;
+	public float            lifeTime = 6f;
 	public float 			fadeTime = 4f;
-	public float             birthTime;
-	public GameObject        cube;     
-
+	public float            birthTime;
+	public GameObject       cube;     
+	public Vector2    		rotMinMax = new Vector2(15,90); 
+	public Vector3          rotPerSecond;   
+	Color c;
 	// Use this for initialization
 	void Awake () {
 		int rand = Random.Range (0, 3);
@@ -17,10 +19,31 @@ public class PowerUp : MonoBehaviour {
 		type = PowerList[rand]; 
 		birthTime = Time.time;
 		cube = gameObject;
+		 
+		switch (rand) {
+		case 0:
+			c = new Color (255f, 0f, 255f);
+			break;
+		case 1:
+			c = new Color (0f, 255f, 255f);
+			break;
+		case 2:
+			c = new Color (255f, 0f, 0f);
+			break;
+		default:
+			c = new Color (255f, 255f, 255f);
+			break;
+		}
+		cube.GetComponent<MeshRenderer>().material.color = c;
+	
+		rotPerSecond = new Vector3( Random.Range(rotMinMax.x,rotMinMax.y), Random.Range(rotMinMax.x,rotMinMax.y),  Random.Range(rotMinMax.x,rotMinMax.y) );
+
+
 	}
 
 	// Update is called once per frame
 	void Update () {
+		cube.transform.rotation = Quaternion.Euler( rotPerSecond*Time.time );
 		float u = (Time.time - (birthTime+lifeTime)) / fadeTime;
 
 		if (u >= 1) {
@@ -29,7 +52,7 @@ public class PowerUp : MonoBehaviour {
 			return;        
 		} 
 		if (u > 0) {
-			Color c = cube.GetComponent<MeshRenderer>().material.color;
+			c = cube.GetComponent<MeshRenderer>().material.color;
 
 			c.a = 1f - u;   
 
