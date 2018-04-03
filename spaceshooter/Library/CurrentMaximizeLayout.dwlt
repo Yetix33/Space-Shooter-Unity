@@ -19,10 +19,10 @@ MonoBehaviour:
     y: 30
     width: 1520
     height: 717
-  m_MinSize: {x: 683, y: 713}
-  m_MaxSize: {x: 14004, y: 18063}
+  m_MinSize: {x: 683, y: 692}
+  m_MaxSize: {x: 14004, y: 18042}
   vertical: 1
-  controlID: 17835
+  controlID: 20780
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,7 +68,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
     m_HSlider: 0
-    m_VSlider: 1
+    m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoom: 0
@@ -80,7 +80,7 @@ MonoBehaviour:
       y: 17
       width: 749
       height: 187
-    m_Scale: {x: 0.525033, y: 0.525033}
+    m_Scale: {x: 0.24348958, y: 0.24348958}
     m_Translation: {x: 374.5, y: 93.5}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -88,10 +88,10 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -713.2885
-      y: -178.08405
-      width: 1426.577
-      height: 356.1681
+      x: -1538.0535
+      y: -384
+      width: 3076.107
+      height: 768
     m_MinimalGUI: 1
   m_defaultScale: 0.24348958
   m_TargetTexture: {fileID: 0}
@@ -120,10 +120,10 @@ MonoBehaviour:
     y: 0
     width: 1520
     height: 717
-  m_MinSize: {x: 683, y: 713}
-  m_MaxSize: {x: 14004, y: 18063}
+  m_MinSize: {x: 683, y: 692}
+  m_MaxSize: {x: 14004, y: 18042}
   vertical: 0
-  controlID: 17836
+  controlID: 20781
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,10 +144,10 @@ MonoBehaviour:
     y: 0
     width: 1076
     height: 717
-  m_MinSize: {x: 406, y: 713}
-  m_MaxSize: {x: 10002, y: 18063}
+  m_MinSize: {x: 406, y: 692}
+  m_MaxSize: {x: 10002, y: 18042}
   vertical: 1
-  controlID: 17814
+  controlID: 20782
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -168,10 +168,10 @@ MonoBehaviour:
     y: 0
     width: 1076
     height: 446
-  m_MinSize: {x: 406, y: 442}
-  m_MaxSize: {x: 8006, y: 8042}
+  m_MinSize: {x: 406, y: 421}
+  m_MaxSize: {x: 8006, y: 8021}
   vertical: 0
-  controlID: 17815
+  controlID: 20783
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -190,8 +190,8 @@ MonoBehaviour:
     y: 0
     width: 323
     height: 446
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 7}
   m_Panes:
   - {fileID: 7}
@@ -228,7 +228,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 94fbffff96fbffff00000000
+    m_ExpandedIDs: caabf7ff96adf7ff8eaef7ffb2ccf7ff601ef8ff7e1ff8ff4620f8ffdee7f8ffa0f1f8ffa8fcf8ff94fbffff96fbffff000000009c760000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -272,10 +272,10 @@ MonoBehaviour:
     y: 0
     width: 753
     height: 446
-  m_MinSize: {x: 204, y: 442}
-  m_MaxSize: {x: 4004, y: 8042}
+  m_MinSize: {x: 204, y: 421}
+  m_MaxSize: {x: 4004, y: 8021}
   vertical: 1
-  controlID: 17816
+  controlID: 20747
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -294,8 +294,8 @@ MonoBehaviour:
     y: 0
     width: 753
     height: 221
-  m_MinSize: {x: 204, y: 221}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 10}
   m_Panes:
   - {fileID: 10}
@@ -335,9 +335,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -12.4828415, y: -3.0372546, z: 6.076774}
+    m_Target: {x: -1874.3424, y: 351.7398, z: -14.757503}
     speed: 2
-    m_Value: {x: -12.4828415, y: -3.0372546, z: 6.076774}
+    m_Value: {x: -1874.3424, y: 351.7398, z: -14.757503}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -365,9 +365,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 14.470484
+    m_Target: 2100.9019
     speed: 2
-    m_Value: 14.470484
+    m_Value: 2100.9019
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -424,8 +424,8 @@ MonoBehaviour:
     y: 221
     width: 753
     height: 225
-  m_MinSize: {x: 204, y: 221}
-  m_MaxSize: {x: 4004, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 2}
   m_Panes:
   - {fileID: 2}
@@ -496,18 +496,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/_Prefabs
+    - Assets/__Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/_Prefabs
+  - Assets/__Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\sanjot\Documents\Semester 2\SE 2250B\sboyal2_SE2250_ProjectPart3\spaceshooter\spaceshooter
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: e6290000
-    m_LastClickedID: 10726
+    m_SelectedIDs: e8290000
+    m_LastClickedID: 10728
     m_ExpandedIDs: 000000006429000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0

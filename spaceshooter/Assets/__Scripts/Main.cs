@@ -42,6 +42,7 @@ public class Main : MonoBehaviour {
 
 	void Start() {
 		TOTAL_POINTS = 0;
+		CURR_LEVEL = 0;
 		HIGH_SCORE = PlayerPrefs.GetInt ("highscore", HIGH_SCORE);
 		UpdateScore ();
 	}
@@ -124,7 +125,7 @@ public class Main : MonoBehaviour {
 	}
 
 	public void Restart(){
-		CURR_LEVEL = 0;
+		
 		SceneManager.LoadScene("_MainScreen");
 	}
 
@@ -135,7 +136,14 @@ public class Main : MonoBehaviour {
 			PowerUp pu = go.GetComponent<PowerUp> ();
 			pu.transform.position = e.transform.position;
 		}
+		if (e.tag == "BossEnemy") {
+			Invoke ("EndGame", 2.0f);
+		}
 
+	}
+
+	public void EndGame(){
+		SceneManager.LoadScene ("_Finished");
 	}
 
 	public void BossSpawn(){

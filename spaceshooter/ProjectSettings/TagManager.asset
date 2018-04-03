@@ -11,9 +11,9 @@ TagManager:
   - PowerUp
   - PowerUpBox
   - HP
-  - Body
   - BossBody
   - HPS
+  - BossEnemy
   layers:
   - Default
   - TransparentFX

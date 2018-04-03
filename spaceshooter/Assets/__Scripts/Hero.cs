@@ -95,6 +95,8 @@ public class Hero : MonoBehaviour {
 		if (go.tag == "Enemy") {
 			shieldLevel--;
 			Destroy (go);
+		} else if (go.tag == "BossEnemy") {
+			shieldLevel--;
 		}else if(go.tag == "PowerUp"){
 			AbsorbPowerUp (go);
 		}else if(go.tag == "ProjectileEnemy"){

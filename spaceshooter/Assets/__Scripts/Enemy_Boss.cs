@@ -42,6 +42,7 @@ public class Enemy_Boss : Enemy {
 	void Update(){
 		base.Update ();
 		textObject.text = health.ToString ();
+
 	}
 
 
