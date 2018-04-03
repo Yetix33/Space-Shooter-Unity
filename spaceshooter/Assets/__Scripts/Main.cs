@@ -54,7 +54,7 @@ public class Main : MonoBehaviour {
 		boundCheck = GetComponent<BoundsCheck> ();
 
 		//Call Spawn function (in 2 seconds)
-		Invoke ("Spawn", 1f / (enemySpawns*(TOTAL_POINTS+1)));
+		Invoke ("Spawn", 1f / enemySpawns);
 
 		WEAP_DICT = new Dictionary<WeaponType, WeaponDefinition> ();
 		phaserdef.damageOnHit = 3;
@@ -73,13 +73,13 @@ public class Main : MonoBehaviour {
 
 	void Update(){
 		UpdateScore ();
-
+		enemySpawns = Mathf.Sqrt (TOTAL_POINTS+1);
 		if (TOTAL_POINTS >= HIGH_SCORE) {
 			HIGH_SCORE = TOTAL_POINTS;
 			PlayerPrefs.SetInt ("highscore", HIGH_SCORE);
 		}
 
-		if (TOTAL_POINTS >= 25 && CURR_LEVEL == 0) {
+		if (TOTAL_POINTS >= 100 && CURR_LEVEL == 0) {
 			CURR_LEVEL++;
 			SceneManager.LoadScene ("_Level", LoadSceneMode.Additive);
 
@@ -112,8 +112,8 @@ public class Main : MonoBehaviour {
 		//RECALL FUNCTION (keeps going)
 
 		if (CURR_LEVEL == 0) {
-			print ((enemySpawns * (TOTAL_POINTS + 1)));
-			Invoke ("Spawn", 2f / (enemySpawns * (TOTAL_POINTS + 1)));
+			print (enemySpawns);
+			Invoke ("Spawn", 5f / enemySpawns);
 		} else {
 			print ("lol");
 			DestroyAll ();

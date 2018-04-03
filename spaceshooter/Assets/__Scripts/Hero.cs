@@ -115,7 +115,9 @@ public class Hero : MonoBehaviour {
 			break;
 		case "speed":
 			print ("speed");
-			speed += 12;
+			if (speed <70)
+			speed += 10;
+
 			break;
 
 		case "nuke":
