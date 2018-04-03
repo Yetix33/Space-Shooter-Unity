@@ -17,7 +17,7 @@ public class Enemy_0 : Enemy {
 
 	void Start() {
 		number = Random.Range (0, 2);
-		health = 3;
+		health = 4;
 		base.setScore ();
 	}
 

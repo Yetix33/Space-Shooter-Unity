@@ -47,12 +47,12 @@ public class Enemy_Boss : Enemy {
 
 
 	void Start() {
-		health = 10;
+		health = 15;
 		base.setScore ();
 		textObject = gameObject.transform.Find("HP").gameObject.GetComponent<TextMesh> ();
 		body = gameObject.transform.Find ("Body").gameObject;
 
-		float ranNum = Random.Range (2, 7);
+		float ranNum = Random.Range (1, 3);
 		Invoke ("Attack", ranNum);
 
 	}

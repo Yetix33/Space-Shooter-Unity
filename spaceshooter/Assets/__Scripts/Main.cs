@@ -21,11 +21,11 @@ public class Main : MonoBehaviour {
 	static public Main S;
 	static Dictionary<WeaponType, WeaponDefinition> WEAP_DICT;
 
-
+	public GameObject explosion;
 
 	public GameObject[] enemies;
 	public GameObject bossEnemy;
-	public float enemySpawns = 0.5f;
+	public float enemySpawns = 20f;
 	public float enemyDefaultSpacing = 1.5f;
 	public WeaponDefinition[] weaponDefinition;
 
@@ -137,7 +137,8 @@ public class Main : MonoBehaviour {
 			pu.transform.position = e.transform.position;
 		}
 		if (e.tag == "BossEnemy") {
-			Invoke ("EndGame", 2.0f);
+			Instantiate (explosion, e.transform.position, e.transform.rotation);
+			Invoke ("EndGame", 4.0f);
 		}
 
 	}
@@ -181,7 +182,7 @@ public class Main : MonoBehaviour {
 		for (int i = 0; i < gameObjects.Length; i++) {
 			Destroy (gameObjects [i]);
 		}
-
+		Instantiate (explosion,Vector3.zero,Quaternion.identity);
 	}
 
 }

@@ -94,7 +94,7 @@ public class Hero : MonoBehaviour {
 
 		if (go.tag == "Enemy") {
 			shieldLevel--;
-			Destroy (go);
+			//Destroy (go);
 		} else if (go.tag == "BossEnemy") {
 			shieldLevel--;
 		}else if(go.tag == "PowerUp"){
@@ -115,7 +115,7 @@ public class Hero : MonoBehaviour {
 			break;
 		case "speed":
 			print ("speed");
-			speed += 15;
+			speed += 12;
 			break;
 
 		case "nuke":

@@ -536,6 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd87ec2c9b1a76546b419ff2eae8e8fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 1698828470604508, guid: 8576f951cd8529647b603f520f73146b, type: 2}
   enemies:
   - {fileID: 1313162265770252, guid: 1d85650a04b9dad449344b44a570d87c, type: 2}
   - {fileID: 1000998253359734, guid: ec177b439883ee043b6a852a6213ff8a, type: 2}

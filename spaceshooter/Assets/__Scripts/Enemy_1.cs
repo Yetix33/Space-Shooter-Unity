@@ -9,7 +9,7 @@ public class Enemy_1 : Enemy {
 
 	void Start(){
 		ranNum = rand.Next(2);
-		health = 1;
+		health = 2;
 		base.setScore ();
 	}
 
