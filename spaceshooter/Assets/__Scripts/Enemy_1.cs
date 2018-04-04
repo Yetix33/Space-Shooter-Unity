@@ -41,7 +41,7 @@ public class Enemy_1 : Enemy {
 	public void Attack(){
 
 		Fire ();
-		Invoke ("Attack", 1.0f);
+		Invoke ("Attack", 3.0f);
 
 	}
 
