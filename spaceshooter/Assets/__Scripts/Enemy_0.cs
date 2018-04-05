@@ -6,8 +6,7 @@ public class Enemy_0 : Enemy {
 
 	public int number;
 
-	// Use this for initialization
-	// Update is called once per frame
+	//moves straight down
 	public override void Move(){
 		Vector2 tempPos = pos;
 		tempPos.y -= speed * Time.deltaTime;

@@ -25,7 +25,7 @@ public class Main : MonoBehaviour {
 
 	public GameObject[] enemies;
 	public GameObject bossEnemy;
-	public float enemySpawns = 20f;
+	public float enemySpawns = 1f;
 	public float enemyDefaultSpacing = 1.5f;
 	public WeaponDefinition[] weaponDefinition;
 
@@ -72,25 +72,31 @@ public class Main : MonoBehaviour {
 	}
 
 	void Update(){
+		//Update Scoreboard
 		UpdateScore ();
-
+		//Enemy Spawnrates
+		enemySpawns = Mathf.Sqrt (TOTAL_POINTS+1);
+		//Update HighScore
 		if (TOTAL_POINTS >= HIGH_SCORE) {
 			HIGH_SCORE = TOTAL_POINTS;
 			PlayerPrefs.SetInt ("highscore", HIGH_SCORE);
 		}
 
-		if (TOTAL_POINTS >= 25 && CURR_LEVEL == 0) {
+		//Move to Next level after 100 points
+		if (TOTAL_POINTS >= 100 && CURR_LEVEL == 0) {
 			CURR_LEVEL++;
 			SceneManager.LoadScene ("_Level", LoadSceneMode.Additive);
 
 		}
 	}
 
+	//Enemy spawn function
+
 	public void Spawn(){
 
 		//Randomly pick an enemey type from list of enemies
 		int rng = Random.Range (0, enemies.Length);
-		//		print (rng);
+	
 		//instantiate it 
 		GameObject enemy = Instantiate<GameObject> (enemies [rng]);
 
@@ -109,23 +115,24 @@ public class Main : MonoBehaviour {
 		pos.y = boundCheck.camHeight + enemySpacing;
 		enemy.transform.position = pos;
 
-		//RECALL FUNCTION (keeps going)
 
+		//if on current level keep spawning minions:: else destroy all minions and spawn boss
 		if (CURR_LEVEL == 0) {
-			Invoke ("Spawn", 1f / enemySpawns);
+			//RECALL FUNCTION (keeps going)
+			Invoke ("Spawn", 5f / enemySpawns);
 		} else {
-			print ("lol");
 			DestroyAll ();
 			Invoke ("BossSpawn", 2f);
 		}
 	}
 
+	//invoke restart of game with a delay
 	public void DelayedRestart(float delay){
 		Invoke ("Restart", delay);
 	}
 
 	public void Restart(){
-		
+		//reload same screen
 		SceneManager.LoadScene("_MainScreen");
 	}
 
@@ -136,17 +143,19 @@ public class Main : MonoBehaviour {
 			PowerUp pu = go.GetComponent<PowerUp> ();
 			pu.transform.position = e.transform.position;
 		}
+		//if boss is destroyed: trigger explosion: game end screen after 4 seconds
 		if (e.tag == "BossEnemy") {
 			Instantiate (explosion, e.transform.position, e.transform.rotation);
 			Invoke ("EndGame", 4.0f);
 		}
 
 	}
-
+	//Load End Game Screen
 	public void EndGame(){
 		SceneManager.LoadScene ("_Finished");
 	}
 
+	//boss spawn function
 	public void BossSpawn(){
 		Vector3 pos = Vector3.zero;
 
@@ -169,12 +178,13 @@ public class Main : MonoBehaviour {
 		return (new WeaponDefinition ());
 
 	}
-
+	//Update score on screen
 	public void UpdateScore() {
 		currentScore.text = "Score: " + TOTAL_POINTS.ToString();
 		highScore.text = "High Score: " + HIGH_SCORE.ToString ();
 	}
 
+	//Destroy all enemy game objects 
 	public void DestroyAll(){
 		GameObject[] gameObjects;
 		gameObjects = GameObject.FindGameObjectsWithTag ("Enemy");

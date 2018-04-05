@@ -15,12 +15,14 @@ public class Enemy_Boss : Enemy {
 	public float launchSpeed = 50;
 
 
+	//random movements
 	public override void Move(){
 		Vector2 tempPos = pos;
 
+		//random speed
 		speed = Random.Range (1, 55);
 
-
+		//select left or right direction depending on its position
 		if (tempPos.x < -10) {
 			left = false;
 		} else if (tempPos.x >= 28) {
@@ -38,26 +40,27 @@ public class Enemy_Boss : Enemy {
 
 
 	}
-
-	void Update(){
+	//updates the hp on his chest
+	new void Update(){
 		base.Update ();
 		textObject.text = health.ToString ();
 
 	}
 
-
+	//starts with default values and initializes components
 	void Start() {
 		health = 15;
 		base.setScore ();
 		textObject = gameObject.transform.Find("HP").gameObject.GetComponent<TextMesh> ();
 		body = gameObject.transform.Find ("Body").gameObject;
 
+		//calls attack with a slight delay
 		float ranNum = Random.Range (1, 3);
 		Invoke ("Attack", ranNum);
 
 	}
 		
-		
+	//flash animation: turns the colour blue and calls red (increases count so it only runs this 4 times);
 	public void Flashfx(){
 		if (count < 4) {
 			body.GetComponent<MeshRenderer> ().material.color = Color.blue;
@@ -69,7 +72,6 @@ public class Enemy_Boss : Enemy {
 
 	public void Red(){
 		body.GetComponent<MeshRenderer>().material.color = Color.red;
-		print ("flash: run");
 
 		Invoke ("Flashfx", 0.3f);
 
@@ -77,31 +79,35 @@ public class Enemy_Boss : Enemy {
 
 
 	public void Attack(){
-		print ("ATTACK RUN!");
+		//calls flash
 		Flashfx ();
+		//picks a random attack
 		int attack = Random.Range (1, 3);
 
 		switch (attack) {
 		case 1:
 			{
-				print ("First: 1");
+				//launches a projectile
 				Fire ();
 				break;
 			}
 		case 2:
 			{
-				print ("First: 2");
+				//spawns minions
 				SpawnMinions ();
 				break;
 			}
 		}
+		//rests colour and count
 		body.GetComponent<MeshRenderer>().material.color = Color.white;
 		count = 0;
+		//randomly recalls attack 
 		float ranNum = Random.Range (2, 8);
 		Invoke ("Attack", ranNum);
 
 	}
 
+	//spawn minions
 	void SpawnMinions(){
 		Vector3 pos = Vector3.zero;
 
@@ -112,6 +118,7 @@ public class Enemy_Boss : Enemy {
 		}
 	}
 
+	//launch projectile 
 	void Fire ()
 	{
 		for (int i = 0; i < 4; i++) {

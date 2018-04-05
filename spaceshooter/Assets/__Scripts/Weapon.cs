@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-//uses enump of diff weapon types in the game, not all are coded yet
 
 
 [System.Serializable]
@@ -80,14 +79,12 @@ public class Weapon : MonoBehaviour {
 	}
 
 	public void Fire() {
-		//if (!gameObject.activeInHierarchy) return;
 
 		if (Time.time - lastShotTime < def.delayBetweenShots) {
 			
 			return;
 		}
-
-		//lastShotTime = Time.time;
+			
 		Projectile p;
 
 		Vector3 vel = Vector3.up * def.velocity;
@@ -124,7 +121,7 @@ public class Weapon : MonoBehaviour {
 		if (transform.parent.gameObject.tag == "Hero") {
 			go.tag = "ProjectileHero";
 			go.layer = LayerMask.NameToLayer ("ProjectileHero");
-			//enemies can get weapons (later addition)de
+
 		} else {
 			go.tag = "ProjectileEnemy";
 			go.layer = LayerMask.NameToLayer ("ProjectileEnemy");
@@ -144,20 +141,8 @@ public class Weapon : MonoBehaviour {
 		_type = t;
 
 		def = Main.GetWeaponDefinition (_type);
-//		collarRend.material.color = def.color;
 	}
 
 	
-	// Update is called once per frame
-	void Update () {
-		/*if(Input.GetKey(KeyCode.Alpha1)) {
-			type = WeaponType.simple;
-		}
 
-		if (Input.GetKey (KeyCode.Alpha2)) {
-			type = WeaponType.blaster;
-		}*/
-
-
-	}
 }

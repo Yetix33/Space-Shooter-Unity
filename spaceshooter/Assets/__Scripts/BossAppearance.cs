@@ -7,13 +7,15 @@ using UnityEngine.UI;
 public class BossAppearance : MonoBehaviour {
 	public Text msg;
 
-	// Use this for initialization
+	//delay
 	float delay = 3f;
 
+	//3 seconds invoke 
 	void Start () {
 		Invoke ("Unload", delay);
 	}
 
+	//flash 
 	void Update(){
 		Flashfx();
 	}
@@ -27,7 +29,8 @@ public class BossAppearance : MonoBehaviour {
 		msg.color = Color.blue;
 		Invoke ("Flashfx", 0.9f);
 	}
-	
+
+	//unload scene 
 	public void Unload(){
 		SceneManager.UnloadSceneAsync("_Level");
 

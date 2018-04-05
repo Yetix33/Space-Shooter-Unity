@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 public class Enemy : MonoBehaviour {
-
+	//default enemy properties
 	private float scorePoints;
 	public int score = 100;
 
@@ -49,7 +49,7 @@ public class Enemy : MonoBehaviour {
 	public virtual void Move(){
 		//Override default Move 
 	}
-
+	//collision management
 	void OnCollisionEnter (Collision coll) {
 		GameObject otherGO = coll.gameObject;
 

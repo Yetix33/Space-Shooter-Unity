@@ -1,13 +1,4 @@
-﻿
-
-
-
-
-
-
-
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,8 +25,7 @@ public class Parallax : MonoBehaviour {
 		panels [1].transform.position = new Vector3 (0, panelHt, depth);
 
 	}
-
-	// Update is called once per frame
+		
 	void Update () {
 		float tY, tX = 0;
 		tY = Time.time * scrollSpeed % panelHt + (panelHt * 0.5f);

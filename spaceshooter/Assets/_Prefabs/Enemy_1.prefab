@@ -299,7 +299,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0544281eb4f28f544a71532765713e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: 100
   speed: 10
+  health: 1
+  enemyProjectilePrefab: {fileID: 1720209817685788, guid: a8f476bff8b3858418554c2717cc0ac0,
+    type: 2}
+  launchSpeed: 40
 --- !u!114 &114955417708932554
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -314,6 +319,10 @@ MonoBehaviour:
   radius: -2.5
   camWidth: 0
   camHeight: 0
+  offRight: 0
+  offLeft: 0
+  offUp: 0
+  offDown: 0
   keepOnScreen: 0
   isOnScreen: 1
 --- !u!136 &136115633576240576

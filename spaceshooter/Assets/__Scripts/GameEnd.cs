@@ -5,12 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameEnd : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
-	// Update is called once per frame
+	// If the player presses enter: reloads game at mainscreen!
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Return)){
 			SceneManager.LoadScene ("_MainScreen");

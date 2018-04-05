@@ -15,7 +15,7 @@ public class Hero : MonoBehaviour {
 
 	[Header("Set Dynamically")]
 	[SerializeField]
-	//Deny access (make it into a property)
+
 	private float _shieldLevel = 1;
 
 	private GameObject lastTriggerGo = null;
@@ -33,7 +33,6 @@ public class Hero : MonoBehaviour {
 		} else {
 			Debug.LogError("Hero.Awake() - attempt to assign two heros" );
 		}
-		//fireDelegate += TempFire;
 	}
 
 
@@ -49,19 +48,11 @@ public class Hero : MonoBehaviour {
 		transform.rotation = Quaternion.Euler (y*pitchMult,x*rollMult,0);
 
 
-		//lets da ship fire poof poof
-
-		/*if (Input.GetKeyDown (KeyCode.Space)) {
-		
-			gun.Fire();
-
-		}*/
 		if(Input.GetKey(KeyCode.Alpha1)) {
 			Weapon.upgradeWeapon(WeaponType.none);
 		}
 
 		if (Input.GetKey (KeyCode.Alpha2)) {
-			//print("two bitch");
 			Weapon.upgradeWeapon(WeaponType.blaster);
 		}
 		if (Input.GetKey (KeyCode.Alpha3)) {
@@ -94,7 +85,6 @@ public class Hero : MonoBehaviour {
 
 		if (go.tag == "Enemy") {
 			shieldLevel--;
-			//Destroy (go);
 		} else if (go.tag == "BossEnemy") {
 			shieldLevel--;
 		}else if(go.tag == "PowerUp"){
@@ -105,21 +95,21 @@ public class Hero : MonoBehaviour {
 		}
 	}
 
+	//absorbing powerup
 	public void AbsorbPowerUp(GameObject go){
 		PowerUp pu = go.GetComponent<PowerUp>();
-		print (pu.type);
+		//depending on type absorbed:: different effects
 		switch (pu.type) {
 		case "shield":
-			print ("shield");
 			shieldLevel++;	
 			break;
 		case "speed":
-			print ("speed");
-			speed += 12;
+			if (speed <70)
+			speed += 10;
+
 			break;
 
 		case "nuke":
-			print ("nuke");
 			Main.S.DestroyAll ();
 			break;
 		}
@@ -127,7 +117,7 @@ public class Hero : MonoBehaviour {
 
 	}
 
-
+	//Shield level of hero: if its <0--> restart game
 	public float shieldLevel {
 		get {
 			return(_shieldLevel);
