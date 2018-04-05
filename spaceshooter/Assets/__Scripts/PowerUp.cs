@@ -19,7 +19,6 @@ public class PowerUp : MonoBehaviour {
 		birthTime = Time.time;
 		cube = gameObject;
 		 
-<<<<<<< HEAD
 		switch (type) {
 		case "speed":
 			c = new Color (255f, 0f, 255f);
@@ -30,21 +29,6 @@ public class PowerUp : MonoBehaviour {
 		case "nuke":
 			c = new Color (255f, 0f, 0f);
 			break;
-=======
-		switch (rand) {
-		case 0:
-			c = new Color (255f, 0f, 255f);
-			break;
-		case 1:
-			c = new Color (0f, 255f, 255f);
-			break;
-		case 2:
-			c = new Color (255f, 0f, 0f);
-			break;
-		default:
-			c = new Color (255f, 255f, 255f);
-			break;
->>>>>>> 7e192b1e10f911ba3bff0ea61f6094c81f2d6993
 		}
 		cube.GetComponent<MeshRenderer>().material.color = c;
 	

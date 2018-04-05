@@ -74,22 +74,15 @@ public class Main : MonoBehaviour {
 	void Update(){
 		//Update Scoreboard
 		UpdateScore ();
-<<<<<<< HEAD
 		//Enemy Spawnrates
 		enemySpawns = Mathf.Sqrt (TOTAL_POINTS+1);
 		//Update HighScore
-=======
-		enemySpawns = Mathf.Sqrt (TOTAL_POINTS+1);
->>>>>>> 7e192b1e10f911ba3bff0ea61f6094c81f2d6993
 		if (TOTAL_POINTS >= HIGH_SCORE) {
 			HIGH_SCORE = TOTAL_POINTS;
 			PlayerPrefs.SetInt ("highscore", HIGH_SCORE);
 		}
 
-<<<<<<< HEAD
 		//Move to Next level after 100 points
-=======
->>>>>>> 7e192b1e10f911ba3bff0ea61f6094c81f2d6993
 		if (TOTAL_POINTS >= 100 && CURR_LEVEL == 0) {
 			CURR_LEVEL++;
 			SceneManager.LoadScene ("_Level", LoadSceneMode.Additive);
@@ -125,11 +118,7 @@ public class Main : MonoBehaviour {
 
 		//if on current level keep spawning minions:: else destroy all minions and spawn boss
 		if (CURR_LEVEL == 0) {
-<<<<<<< HEAD
 			//RECALL FUNCTION (keeps going)
-=======
-			print (enemySpawns);
->>>>>>> 7e192b1e10f911ba3bff0ea61f6094c81f2d6993
 			Invoke ("Spawn", 5f / enemySpawns);
 		} else {
 			DestroyAll ();

@@ -104,10 +104,6 @@ public class Hero : MonoBehaviour {
 			shieldLevel++;	
 			break;
 		case "speed":
-<<<<<<< HEAD
-=======
-			print ("speed");
->>>>>>> 7e192b1e10f911ba3bff0ea61f6094c81f2d6993
 			if (speed <70)
 			speed += 10;
 
