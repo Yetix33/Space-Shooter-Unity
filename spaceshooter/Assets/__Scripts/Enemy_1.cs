@@ -38,7 +38,11 @@ public class Enemy_1 : Enemy {
 		pos = tempPos;
 	}
 
+<<<<<<< HEAD
 	//Launches an attack
+=======
+
+>>>>>>> 7e192b1e10f911ba3bff0ea61f6094c81f2d6993
 	public void Attack(){
 
 		Fire ();
@@ -46,16 +50,26 @@ public class Enemy_1 : Enemy {
 
 	}
 
+<<<<<<< HEAD
 	//fires weapon
 	void Fire ()
 	{	
 		
+=======
+
+	void Fire ()
+	{	
+
+>>>>>>> 7e192b1e10f911ba3bff0ea61f6094c81f2d6993
 		Projectile p;
 
 		Vector3 vel = Vector3.down * launchSpeed;
 
 		int fire = Random.Range (1, 3);
+<<<<<<< HEAD
 		//weapon choice is random
+=======
+>>>>>>> 7e192b1e10f911ba3bff0ea61f6094c81f2d6993
 		switch (fire) {
 
 		case 1:

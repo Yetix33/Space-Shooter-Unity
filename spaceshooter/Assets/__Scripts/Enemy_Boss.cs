@@ -40,7 +40,11 @@ public class Enemy_Boss : Enemy {
 
 
 	}
+<<<<<<< HEAD
 	//updates the hp on his chest
+=======
+
+>>>>>>> 7e192b1e10f911ba3bff0ea61f6094c81f2d6993
 	new void Update(){
 		base.Update ();
 		textObject.text = health.ToString ();
